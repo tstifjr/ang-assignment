@@ -7,7 +7,69 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<div class="container">
+  <div class="nav">
+    <li class="p-2">
+      <span class="badge badge-primary">{{title}}</span>
+    </li>
+    <li class="p-2">
+      <span class="badge badge-warning">View</span>
+    </li>
+    <li class="p-2">
+      <span class="badge badge-dark">Edit</span>
+    </li>
+  </div>
+
+  <add-task-form
+  (addTask)="items.push($event)">
+</add-task-form>
+
+
+
+  <div>
+    <select name="filter-task" id="filter-task" class="form-select" [(ngModel)]="taskFilter"> 
+      <!-- (ngModelChange)="filterChange($event)" -->
+
+      <option value="0">All</option>
+      <option value="1">Not Completed</option>
+      <option value="2">Completed</option>
+    </select>
+  </div>
+
+
+  <div>
+    <task-list [tasks]="visibleItems">
+    </task-list>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -322,7 +384,7 @@
       </div>
     </div>
   </div>
-</main>
+</main> -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->

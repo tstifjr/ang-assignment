@@ -1,0 +1,7 @@
+  <form class="form-inline">
+    <div class="form-group m-2">
+      <label for="specificSizeInputName" class="alert">New Task</label>
+      <input type="text" name="new-task-text" class="form-control" [(ngModel)]="newTaskText">
+    </div>
+    <button type="submit" class="btn btn-success" (click)="$event.preventDefault(); addNewTask()">Add Task</button>
+  </form>

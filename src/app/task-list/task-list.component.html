@@ -1,0 +1,17 @@
+  <div *ngIf="tasks.length === 0; else showList">
+    <span>You have no tasks to Do. Please add a new Task</span>
+  </div>
+
+  <ng-template #showList>
+    <ul class="task-list">
+      <li *ngFor="let item of tasks; index as ii">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="checkbox" type="checkbox" [checked]="item.isComplete" [attr.data-index]="ii"
+              (click)="toggleItem(item)">
+            {{item.text}}
+          </label>
+        </div>
+      </li>
+    </ul>
+  </ng-template>
