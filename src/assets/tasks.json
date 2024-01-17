@@ -1,0 +1,18 @@
+[
+    {
+        "text": "brush teeth",
+        "isComplete": true
+    },
+    {
+        "text": "eat breakfast",
+        "isComplete": false
+    },
+    {
+        "text": "check emails",
+        "isComplete": false
+    },
+    {
+        "text": "make lunch",
+        "isComplete": true
+    }
+]

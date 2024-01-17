@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/Task';
+import { ActivationStart } from '@angular/router';
+import {EventService} from "../services/EventService"
 
 @Component({
   selector: 'task-list-item',
@@ -8,20 +10,28 @@ import { Task } from '../../models/Task';
 })
 export class TaskListItemComponent {
   @Input() task! : Task;
-  @Input() taskText! : string;
-  @Input() completed! : boolean;
 
-  @Output() completedChange = new EventEmitter<boolean>();
-  @Output() deleteTask = new EventEmitter<Task>();
+  // @Output() editedTask = new EventEmitter<Task>()
+  editToggle : boolean = false
+  constructor(private events: EventService){}
 
   toggleCompleted() {
 		//toggle checkmark and boolean value of task object
-		this.completed = !this.completed
-    this.completedChange.emit(this.completed)
+		this.task.isComplete = !this.task.isComplete
 	}
 
-  handleDelete() {
-    console.log("Delete Me!")
-    this.deleteTask.emit(this.task)
+  removeTask() {
+    // console.log("Delete Me!")
+    this.events.emit('removeTask', this.task)
+  }
+
+  editTask() {
+    this.editToggle = !this.editToggle
+  }
+
+  submitEditTask(){
+    let editedText = this.task.text
+    console.log(editedText)
+    this.editToggle = !this.editToggle
   }
 }

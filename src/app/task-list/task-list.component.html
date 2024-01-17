@@ -4,7 +4,7 @@
 
 <ng-template #showList>
   <ul class="task-list">
-    <task-list-item *ngFor="let task of tasks" [task]="task" [taskText]="task.text" [(completed)]="task.isComplete">
+    <task-list-item *ngFor="let task of tasks" [task]="task">
     </task-list-item>
   </ul>
 </ng-template>

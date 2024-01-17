@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../models/Task';
-
+import {EventService} from './services/EventService'
+import { TaskService } from './task.service';
 
 @Component({
 	selector: 'app-root',
@@ -8,14 +9,24 @@ import { Task } from '../models/Task';
 	styleUrl: './app.component.css'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 	title = 'ng-todo-assign';
 
-	items: Task[] = [
-		new Task("brush teeth", true),
-		new Task("eat breakfast"),
-		new Task("check emails")
-	]
+	items!: Task[];
 
-	filter: any;
+	// filter: any;
+
+	constructor(events: EventService, private taskService: TaskService) {
+		events.listen('removeTask', (task: any)=>{
+			// console.log(task);
+			let i = this.items.indexOf(task);
+			this.items.splice(i, 1);
+		})
+	}
+
+	ngOnInit(): void {
+		this.taskService.getTasks().subscribe((data : any)=>{
+			this.items = data
+		})
+	}
 }
