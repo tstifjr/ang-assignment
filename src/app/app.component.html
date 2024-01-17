@@ -20,26 +20,19 @@
     </li>
   </div>
 
-  <add-task-form
-  (addTask)="items.push($event)">
-</add-task-form>
+  <add-task-form (addTask)="items.push($event)">
+  </add-task-form>
 
 
 
-  <div>
-    <select name="filter-task" id="filter-task" class="form-select" [(ngModel)]="taskFilter"> 
-      <!-- (ngModelChange)="filterChange($event)" -->
-
-      <option value="0">All</option>
-      <option value="1">Not Completed</option>
-      <option value="2">Completed</option>
-    </select>
-  </div>
+  <!-- <div>
+    <task-filter [(filter)]="filter"></task-filter>
+  </div> -->
 
 
   <div>
-    <task-list [tasks]="visibleItems">
-    </task-list>
+    <!-- <task-list [tasks]="items.filter(filter)"></task-list> -->
+    <task-list [tasks]="items"></task-list>
   </div>
 
 </div>

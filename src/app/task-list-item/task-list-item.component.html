@@ -1,0 +1,9 @@
+<li class="d-flex m-2">
+    <div class="form-check">
+        <label class="form-check-label">
+            <input class="checkbox" type="checkbox" [checked]="completed" (click)="toggleCompleted()">
+            {{taskText}}
+        </label>
+    </div>
+    <button class="btn btn-sm btn-danger ml-1 text-center" (click)="handleDelete()">Remove</button>
+</li>
