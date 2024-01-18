@@ -1,0 +1,7 @@
+<div class="container justify-content-center">
+  <p class="text-center">Task Editor Page</p>
+  <div class="">
+    <add-task-form (addTask)="tasks.push($event)"></add-task-form>
+    <task-list [tasks]="tasks"></task-list>
+  </div>
+</div>

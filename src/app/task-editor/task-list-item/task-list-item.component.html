@@ -1,11 +1,11 @@
-<li class="d-flex justify-content-between w-50">
+<li class="d-flex justify-content-between w-50 m-1">
     <div class="form-check d-flex">
             <input class="checkbox" type="checkbox" [checked]="task.isComplete" (click)="toggleCompleted()">
             <div (click)="editTask()" *ngIf="!editToggle">
                 <span class="ml-2" >{{task.text}}</span>
             </div>
             <div *ngIf="editToggle">
-                <input type="text" name="edit-text" [value]="task.text">
+                <input type="text" name="edit-text" [(ngModel)]="task.text">
                 <button type="button" (click)="editTask()">Save</button>
             </div>
 
@@ -15,7 +15,4 @@
     </div>
 
 </li>
-
-
-<!-- want to conditionally render span text vs input -->
 

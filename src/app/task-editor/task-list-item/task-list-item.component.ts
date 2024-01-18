@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../models/Task';
-import { ActivationStart } from '@angular/router';
-import {EventService} from "../services/EventService"
+import { Task } from '../../../models/Task';
+import { EventService } from '../../services/EventService';
 
 @Component({
   selector: 'task-list-item',
@@ -21,17 +20,13 @@ export class TaskListItemComponent {
 	}
 
   removeTask() {
-    // console.log("Delete Me!")
+    console.log(`Delete ${this.task.text}`)
     this.events.emit('removeTask', this.task)
   }
 
   editTask() {
+    //toggle view of editing task text
     this.editToggle = !this.editToggle
   }
 
-  submitEditTask(){
-    let editedText = this.task.text
-    console.log(editedText)
-    this.editToggle = !this.editToggle
-  }
 }

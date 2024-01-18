@@ -1,13 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Task } from '../models/Task';
+import { catchError, of, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor(private http: HttpClient) { }
+  private data: Task[] = [
+    new Task('first string', false),
+    new Task('second string', true),
+    new Task('third string', false)
+  ]
 
-  getTasks(){
-    return this.http.get('assets/tasks.json');
+  getAllItems() {
+    return of(this.data);
   }
+
+  
+
+  // //http get functionality from json
+  // constructor(private http: HttpClient) { }
+
+  // private getOptions() : any {
+  //   return {
+  //     headers: new HttpHeaders({
+  //       'Content-Type' : 'application/json'
+  //     })
+  //   }
+  // }
+
+  // getTasks(){
+  //   return this.http.get('assets/tasks.json');
+  // }
+
 }

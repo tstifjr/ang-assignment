@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../models/Task';
+import { Task } from '../../../models/Task';
 
 const filters = [
 	(item : Task) => item,

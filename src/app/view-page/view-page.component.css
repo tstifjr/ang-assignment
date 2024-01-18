@@ -1,0 +1,10 @@
+.task-list {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 33%;
+    margin-top: 90px;
+}
+
+.disabledchecks {
+    background-color: blue;
+}

@@ -1,0 +1,19 @@
+<div class="container justify-content-center">
+    <p class="text-center">View Tasks Page</p>
+    <div *ngIf="tasks.length === 0; else showList">
+        <span>You have no tasks to Do. Please add a new Task</span>
+    </div>
+
+    <ng-template #showList>
+        <ul class="task-list">
+            <li class="d-flex w-25 m-2" *ngFor="let task of tasks">
+                <div class="form-check d-flex">
+                    <input class="checkbox" type="checkbox" [checked]="task.isComplete" disabled="disabled">
+                    <span class="ml-2">{{task.text}}</span>
+                </div>
+            </li>
+        </ul>
+    </ng-template>
+</div>
+
+

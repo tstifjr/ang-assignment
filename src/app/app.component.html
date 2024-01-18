@@ -1,41 +1,16 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<div class="container">
-  <div class="nav">
-    <li class="p-2">
-      <span class="badge badge-primary">{{title}}</span>
-    </li>
-    <li class="p-2">
-      <span class="badge badge-warning">View</span>
-    </li>
-    <li class="p-2">
-      <span class="badge badge-dark">Edit</span>
-    </li>
-  </div>
+<app-header></app-header>
 
-  <add-task-form (addTask)="items.push($event)">
-  </add-task-form>
+<!-- <app-task-editor [items]="items"></app-task-editor> -->
+
+<!-- <div class="container m-2">
+  <app-view-page [tasks]='items'></app-view-page>
+</div> -->
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
 
 
-
-  <!-- <div>
-    <task-filter [(filter)]="filter"></task-filter>
-  </div> -->
-
-
-  <div>
-    <!-- <task-list [tasks]="items.filter(filter)"></task-list> -->
-    <task-list [tasks]="items"></task-list>
-  </div>
-
-</div>
 
 
 
